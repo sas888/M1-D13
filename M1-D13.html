@@ -15,12 +15,34 @@ The user should be able to see the list of tasks, add new ones, delete existing 
     <!-- EXERCISE 1:
     Specify the title, the charset (UTF-8) and the viewport of the page.
     -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <style>
       /* EXERCISE 2:  
        Create a CSS class for the task list with a different background color
        Create a CSS class for the task list item with a border, a bold text and a bigger font size
        Style every button of the page to be bigger
     */
+
+      #myTaskList {
+        background-color: rgb(238, 240, 236);
+        padding: 0;
+      }
+
+      #myTaskList li {
+        border: 1px solid tan;
+        margin-bottom: 5px;
+      }
+      input[type="button"] {
+        font-size: 1rem;
+        font-weight: 800;
+      }
+
+      li {
+        list-style: none;
+      }
     </style>
   </head>
   <body>
@@ -38,10 +60,13 @@ The user should be able to see the list of tasks, add new ones, delete existing 
     <!-- EXERCISE 3
         Create a button "Remove Last Task" to trigger the method "removeLast"
         -->
+    <input type="button" value="Remove Last Task" onclick="removeLast()" />
 
     <!-- EXERCISE 4
         Create a button "Remove First Task" to trigger the method "removeFirst"
         -->
+
+    <input type="button" value="Remove First Task" onclick="removeFirst()" />
 
     <ul id="myTaskList"></ul>
 
@@ -59,42 +84,50 @@ The user should be able to see the list of tasks, add new ones, delete existing 
     <input type="button" value="Sort" onclick="bubblesort()" />
 
     <script>
-      /* EXERCISE 5: 
-                Add a new task to the list.
-                Suggestion:
-                - Use document.getElementById to get the UL item and the input text
-                - Use the document.createElement to create the new List Item
-                - Append the LI child to the UL
-            */
+      /* EXERCISE 5:
+                      Add a new task to the list.
+                      Suggestion:
+                      - Use document.getElementById to get the UL item and the input text
+                      - Use the document.createElement to create the new List Item
+                      - Append the LI child to the UL
+                  */
 
-      /* EXERCISE 6: 
-                Create a method "removeLast" which removes the last item from the task list
-            */
+      const addNewTask = function () {
+        const newTaskItem = document.getElementById("newTask").value;
+        const newTaskList = document.getElementById("myTaskList");
+        const newTaskLi = document.createElement("li");
+        newTaskLi.innerText = newTaskItem;
+        newTaskList.appendChild(newTaskLi);
+      };
 
-      /* EXERCISE 7: 
-                Create a method "removeFirst" which removes the first item from the task list
-            */
+      /* EXERCISE 6:
+                      Create a method "removeLast" which removes the last item from the task list
+      //             */
 
-      /* EXERCISE 8: 
-               Create a method "getTasksAsArray" which returns, and prints to the console an array containing the tasks as strings
-            */
+      /* EXERCISE 7:
+                      Create a method "removeFirst" which removes the first item from the task list
+                  */
+
+      /* EXERCISE 8:
+                     Create a method "getTasksAsArray" which returns, and prints to the console an array containing the tasks as strings
+                  */
 
       /* EXERCISE 9:
-               Create a method "changeTaskBackgroundColor" which takes the color from the color picker with an 
-               onchange event listener ad applies it as background to every list item
-            */
+                     Create a method "changeTaskBackgroundColor" which takes the color from the color picker with an
+                     onchange event listener ad applies it as background to every list item
+                  */
 
       /* EXTRA */
 
-      /* EXERCISE 10: 
-               Create a method "bubbleSort()" which sorts the task list alphabetically using the bubble sort algorithm
-            
-               Use your spare time to beautify your task list with CSS.
+      /* EXERCISE 10:
+                     Create a method "bubbleSort()" which sorts the task list alphabetically using the bubble sort algorithm
 
-               Suggestion:
-               - Break the code into many function for semplicity 
-               - Reuse the functions previously created
-            */
+                     Use your spare time to beautify your task list with CSS.
+
+                     Suggestion:
+                     - Break the code into many function for semplicity
+                     - Reuse the functions previously created
+                  */
     </script>
   </body>
 </html>
