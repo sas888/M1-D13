@@ -92,11 +92,11 @@ The user should be able to see the list of tasks, add new ones, delete existing 
                       - Append the LI child to the UL
                   */
 
+      const newTaskList = document.getElementById("myTaskList");
       const addNewTask = function () {
-        const newTaskItem = document.getElementById("newTask").value;
-        const newTaskList = document.getElementById("myTaskList");
+        const newTaskItem = document.getElementById("newTask");
         const newTaskLi = document.createElement("li");
-        newTaskLi.innerText = newTaskItem;
+        newTaskLi.innerText = newTaskItem.value;
         newTaskList.appendChild(newTaskLi);
       };
 
@@ -104,9 +104,25 @@ The user should be able to see the list of tasks, add new ones, delete existing 
                       Create a method "removeLast" which removes the last item from the task list
       //             */
 
+      function removeLast() {
+        let removeLastList = document.getElementById("myTaskList");
+        removeLastList.removeChild(removeLastList.lastElementChild);
+      }
+
+      // function removeLast() {
+      //   newTaskList.children[newTaskList.children.length - 1].remove();
+      // }
+
       /* EXERCISE 7:
                       Create a method "removeFirst" which removes the first item from the task list
                   */
+      function removeFirst() {
+        newTaskList.removeChild(newTaskList.firstElementChild);
+      }
+
+      // function removeFirst() {
+      //   newTaskList.children[0].remove();
+      // }
 
       /* EXERCISE 8:
                      Create a method "getTasksAsArray" which returns, and prints to the console an array containing the tasks as strings
